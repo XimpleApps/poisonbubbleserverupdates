@@ -1,7 +1,7 @@
 {
   "args": {}, 
   "headers": {
-    "liveversion": 5.00
+    "liveversion": 4.00
   }, 
   "url": "https://raw.githubusercontent.com/XimpleApps/poisonbubbleserverupdates/main/checkupdates"
 }
