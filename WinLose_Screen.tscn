@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/Fonts/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/ProgressCircle.png" type="Texture" id=2]
+[ext_resource path="res://UI/WinScreen/Star.png" type="Texture" id=3]
+[ext_resource path="res://UI/WinScreen/StarHover.png" type="Texture" id=4]
+[ext_resource path="res://WinLose_Screen.gd" type="Script" id=5]
+[ext_resource path="res://UI/WinScreen/ContextDialogRight.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="WinLose_Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Title" type="ColorRect" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -148.0
+margin_bottom = 92.0
+color = Color( 1, 0.796078, 0, 1 )
+
+[node name="Title" type="Label" parent="Title"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 32.0
+margin_bottom = 32.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.686275 )
+custom_constants/shadow_offset_x = 10
+custom_constants/shadow_offset_y = 10
+custom_fonts/font = SubResource( 1 )
+text = "VICTORY"
+align = 1
+valign = 1
+
+[node name="Medals" type="TextureProgress" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 152.0
+margin_right = 293.0
+margin_bottom = 461.0
+rect_scale = Vector2( -1, -1 )
+value = 50.0
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+
+[node name="Stars" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -448.0
+margin_top = -448.0
+
+[node name="Stars" type="TextureProgress" parent="Stars"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -152.0
+margin_top = 8.0
+margin_right = 293.0
+margin_bottom = 469.0
+rect_scale = Vector2( 1, -1 )
+value = 50.0
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+
+[node name="Star1" type="TextureButton" parent="Stars"]
+margin_left = 344.0
+margin_top = 296.0
+margin_right = 454.0
+margin_bottom = 406.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 55, 55 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="Star2" type="TextureButton" parent="Stars"]
+margin_left = 288.0
+margin_top = 168.0
+margin_right = 398.0
+margin_bottom = 278.0
+rect_pivot_offset = Vector2( 55, 55 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="Star3" type="TextureButton" parent="Stars"]
+margin_left = 344.0
+margin_top = 40.0
+margin_right = 454.0
+margin_bottom = 150.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 55, 55 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="ContextDialog" type="TextureRect" parent="Stars"]
+margin_top = 328.0
+margin_right = 319.0
+margin_bottom = 428.0
+texture = ExtResource( 6 )
+
+[node name="Title" type="Label" parent="Stars/ContextDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_right = -47.0
+margin_bottom = -44.0
+custom_fonts/font = SubResource( 2 )
+text = "STAR"
+align = 1
+valign = 1
+
+[node name="Description" type="Label" parent="Stars/ContextDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 44.0
+margin_right = -47.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0.811765, 0.811765, 0.811765, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "A shining  star found at the map"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="mouse_entered" from="Stars/Star1" to="." method="_on_Star1_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Star1" to="." method="_on_Star1_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Star2" to="." method="_on_Star2_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Star2" to="." method="_on_Star2_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Star3" to="." method="_on_Star3_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Star3" to="." method="_on_Star3_mouse_exited"]
